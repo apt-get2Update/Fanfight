@@ -1,0 +1,20 @@
+{
+  "name": "walet",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start" : "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apt-get2Update/Fanfight.git"
+  },
+  "author": "thirumurugan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/apt-get2Update/Fanfight/issues"
+  },
+  "homepage": "https://github.com/apt-get2Update/Fanfight#readme"
+}
