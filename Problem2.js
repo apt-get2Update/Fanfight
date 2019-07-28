@@ -32,3 +32,6 @@ function minimalDeviation(n, k, a) {
   }
   console.log(sum);
 }
+
+
+/* node  Problem2.js execute program */
