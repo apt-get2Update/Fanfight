@@ -2,14 +2,14 @@ export default class Winnings {
   totalWinnings = 0;
 
   addWinnings(winnings) {
-    totalWinnings = totalWinnings + winnings;
+    this.totalWinnings = this.totalWinnings + winnings;
   }
 
   getTotalWinnings() {
-    return totalWinnings;
+    return this.totalWinnings;
   }
 
   useFromWinnings(amountToBeDeducted) {
-    totalWinnings = totalWinnings - amountToBeDeducted;
+    this.totalWinnings = this.totalWinnings - amountToBeDeducted;
   }
 }

@@ -10,19 +10,19 @@ export default class FanFightWallet {
   }
 
   getDeposit() {
-    return deposit;
+    return this.deposit;
   }
   setDeposit(deposit) {
     this.deposit = deposit;
   }
   getBonus() {
-    return bonus;
+    return this.bonus;
   }
   setBonus(bonus) {
     this.bonus = bonus;
   }
   getWinnings() {
-    return winnings;
+    return this.winnings;
   }
   setWinnings(winnings) {
     this.winnings = winnings;
@@ -30,9 +30,9 @@ export default class FanFightWallet {
 
   getFanFightWalletBalance() {
     return (
-      getBonus().getTotalBonus() +
-      getDeposit().getTotalDepositAmount() +
-      getWinnings().getTotalWinnings()
+      this.getBonus().getTotalBonus() +
+      this.getDeposit().getTotalDepositAmount() +
+      this.getWinnings().getTotalWinnings()
     );
   }
 }

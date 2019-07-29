@@ -4,12 +4,12 @@ export default class Deposit {
 
   addDeposit(depositAmount) {
     //have some check whether the giving deposit amount is > 0
-    totalDeposit = totalDeposit + depositAmount;
+    this.totalDeposit = this.totalDeposit + depositAmount;
   }
   getTotalDepositAmount() {
-    return totalDeposit;
+    return this.totalDeposit;
   }
   useFromDeposit(amountToBeDeducted) {
-    totalDeposit = totalDeposit - amountToBeDeducted;
+    this.totalDeposit = this.totalDeposit - amountToBeDeducted;
   }
 }

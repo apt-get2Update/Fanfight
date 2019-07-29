@@ -1,4 +1,4 @@
-class Bonus {
+export default class Bonus {
 	
 	totalBonus = 0;
 	
@@ -17,3 +17,4 @@ class Bonus {
 	}
 
 }
+
