@@ -1,7 +1,4 @@
 export default class FanFightWallet {
-  deposit;
-  bonus;
-  winnings;
 
   constructor(bonus, deposit, winnings) {
     this.deposit = deposit;

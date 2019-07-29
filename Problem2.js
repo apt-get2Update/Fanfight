@@ -21,7 +21,8 @@ const solve = async () =>{
 
 solve();
 
-function minimalDeviation(n, k, a) {
+function minimalDeviation(n, k, array) {
+  let a = array.map(d=>parseInt(d));
   let ar = [],
     sum = 0;
   for (let i = 1; i < n; i++) {

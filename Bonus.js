@@ -1,6 +1,8 @@
 export default class Bonus {
+	constructor(){
+        this.totalBonus = 0;
+    }
 	
-	totalBonus = 0;
 	
 	addBonus(bonus){
 		//have some check whether the giving bonus amount is > 0
