@@ -1,11 +1,9 @@
 export default class FanFightService {
   static processPayment(wallet, amount) {
     let bonus = wallet.getBonus();
-    //  .getTotalBonus();
     let deposit = wallet.getDeposit();
-    //    .getTotalDepositAmount();
     let winnings = wallet.getWinnings();
-    // let totatlAmount = wallet.getFanFightWalletBalance();
+
     let dAmount = deposit.getTotalDepositAmount();
     if (dAmount > amount) {
       deposit.useFromDeposit(amount);
