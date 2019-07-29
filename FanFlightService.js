@@ -1,24 +1,44 @@
-import Bonus from "./Bonus";
-import Deposit from "./Deposit";
-import FanFightWallet from "./FanFlightWallet";
-import Winnings from "./Winnings";
-
 export default class FanFightService {
-  constructor(bonus,deposit,win){
-      this.fanFightWallet = new FanFightWallet(
-        new Bonus(bonus),
-        new Deposit(deposit),
-        new Winnings(win)
-      );
+  static processPayment(wallet, amount) {
+    let bonus = wallet.getBonus();
+    //  .getTotalBonus();
+    let deposit = wallet.getDeposit();
+    //    .getTotalDepositAmount();
+    let winnings = wallet.getWinnings();
+    // let totatlAmount = wallet.getFanFightWalletBalance();
+    let dAmount = deposit.getTotalDepositAmount();
+    if (dAmount > amount) {
+      deposit.useFromDeposit(amount);
+    } else {
+      deposit.useFromDeposit(dAmount);
+      let bal = amount - dAmount;
+      //get winnings 85%
+      let win = Math.round((bal * 85) / 100);
+      if (winnings.getTotalWinnings() > win) {
+        winnings.useFromWinnings(win);
+        if(bonus.getTotalBonus() < (bal-win)){
+            bonus.useFromBonus(bonus.getTotalBonus());
+            winnings.useFromWinnings((bal - win) - bonus.getTotalBonus());
+        }else{
+            bonus.useFromBonus(bal-win);
+        }
+      } else {
+        winnings.useFromWinnings(winnings.getTotalWinnings());
+        bonus.useFromBonus(bal - winnings.getTotalWinnings());
+      }
+    }
+    return wallet
   }
   calculateBonus(bonus, bonusPercentage) {
-    bonusAmountToBeDeducted = 0;
-        /*
-		  Calculate the bonus amount based on the given percentage and deduct from Bonus
-		  and return that bonus amount.
-		 */
-
-    return bonusAmountToBeDeducted;
+    return (bonusPercentage * bonus.getTotalBonus()) / 100;
   }
-  
+  payEntryFee(wallet, amount, discount) {
+    let totatlAmount = wallet.getFanFightWalletBalance();
+    if (amount > totatlAmount) {
+      throw new Error("You dont have sufficient Balance");
+    } else {
+      let pay = amount - (amount * discount) / 100;
+      return FanFightService.processPayment(wallet, pay);
+    }
+  }
 }
