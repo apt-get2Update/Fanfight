@@ -4,7 +4,6 @@ import FanFightWallet from "./FanFlightWallet";
 import Winnings from "./Winnings";
 
 export default class FanFightService {
-//   fanFightWallet;
   constructor(bonus,deposit,win){
       this.fanFightWallet = new FanFightWallet(
         new Bonus(bonus),

@@ -1,6 +1,5 @@
 export default class Winnings {
     constructor(t=0){
-        
         this.totalWinnings = t;
     }
 
